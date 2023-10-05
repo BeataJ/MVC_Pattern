@@ -17,11 +17,14 @@ class Post {
   }
 
   async fetch() {
-    if(!this.id) {
+    if (!this.id) {
       return;
     }
 
-    const postDocument = await db.getDb().collection("posts").findOne({ _id: this.id });
+    const postDocument = await db
+      .getDb()
+      .collection("posts")
+      .findOne({ _id: this.id });
     this.title = postDocument.title;
     this.content = postDocument.content;
   }
