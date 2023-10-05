@@ -11,6 +11,11 @@ class Post {
     }
   }
 
+  static async fetchAll() {
+    const posts = await db.getDb().collection("posts").find().toArray();
+    return posts;
+  }
+
   async save() {
     let result;
     if (this.id) {
